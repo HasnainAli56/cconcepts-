@@ -447,87 +447,189 @@ h1, h2, h3, h4, h5, h6 {
   filter: grayscale(0%) brightness(1);
 }
 
-/* Webfolio Curved Notch Badges on Selected Works */
-.work-fade .item {
-  position: relative;
+/* ==========================================================================
+   PROJECT SHOWCASE CARDS (Clean, uncluttered, consistent imagery & full details)
+   ========================================================================== */
+.project-showcase-card {
+  background: #0c122d;
+  border: 1px solid rgba(0, 111, 192, 0.22);
+  border-radius: 18px;
   overflow: hidden;
-  border-radius: 16px;
-  background: #141414;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
 }
 
-.work-fade .item .img {
-  position: relative;
-  height: 420px;
-  overflow: hidden;
-  border-radius: 16px;
+.project-showcase-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 111, 192, 0.55);
+  box-shadow: 0 20px 45px rgba(0, 111, 192, 0.16);
 }
 
-.work-fade .item .img img {
+.project-showcase-card .card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #070b19;
+}
+
+.project-showcase-card .card-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.work-fade .item:hover .img img {
-  transform: scale(1.08);
+.project-showcase-card:hover .card-img-wrap img {
+  transform: scale(1.06);
 }
 
-.work-fade .item .cont {
+.project-showcase-card .category-pill {
   position: absolute;
-  top: 40px;
-  left: 0;
-  z-index: 5;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 14px;
+  background: rgba(7, 11, 25, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 111, 192, 0.4);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6ec1e4;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.work-fade .item .cont .text {
-  position: relative;
-  display: block;
-  width: max-content;
-  padding: 10px 28px;
-  margin: -1px 0;
-  font-size: 16px;
-  font-weight: 600;
-  background: #141414;
+.project-showcase-card .card-body-content {
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-showcase-card .client-meta {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--main-color);
+  margin-bottom: 8px;
+}
+
+.project-showcase-card .card-title {
+  font-size: 19px;
+  font-weight: 700;
   color: #fff;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.project-showcase-card .card-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* Full-Service Capabilities Badge Box */
+.project-showcase-card .capabilities-box {
+  margin-top: auto;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-left: 0;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
-.work-fade .item .cont .text:first-of-type {
-  border-radius: 0 20px 0 0;
+.project-showcase-card .cap-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
-.work-fade .item .cont .text:first-of-type .shap-left-top svg {
-  position: absolute;
-  top: -1.35rem;
-  left: -1px;
-  transform: rotate(270deg);
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
-.work-fade .item .cont .text:first-of-type .shap-right-bottom svg {
-  position: absolute;
-  bottom: 0;
-  right: -1.35rem;
-  transform: rotate(270deg);
-  width: 1.4rem;
-  height: 1.4rem;
-}
-
-.work-fade .item .cont .text:nth-of-type(2) {
-  border-radius: 0 20px 20px 0;
+.project-showcase-card .cap-label i {
   color: var(--main-color);
 }
 
-.work-fade .item .cont .text:nth-of-type(2) .shap-left-bottom svg {
-  position: absolute;
-  bottom: -1.35rem;
-  left: -1px;
-  transform: rotate(0deg);
-  width: 1.4rem;
-  height: 1.4rem;
+.project-showcase-card .cap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-showcase-card .cap-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 9px;
+  border-radius: 6px;
+  background: rgba(0, 111, 192, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 111, 192, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.project-showcase-card .cap-tag i {
+  font-size: 10px;
+  color: var(--cconcepts-cyan);
+}
+
+.project-showcase-card .cap-tag.cap-highlight {
+  background: rgba(0, 111, 192, 0.28);
+  border-color: rgba(110, 193, 228, 0.45);
+  color: #6ec1e4;
+  font-weight: 700;
+}
+
+.project-showcase-card .card-footer-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.project-showcase-card .project-action-btn {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.project-showcase-card .project-action-btn:hover {
+  color: var(--cconcepts-cyan);
+  gap: 12px;
+}
+
+.project-showcase-card .project-action-btn i {
+  font-size: 11px;
+  color: var(--main-color);
+  transition: transform 0.25s ease;
+}
+
+.project-showcase-card:hover .project-action-btn i {
+  transform: translateX(3px);
+  color: var(--cconcepts-cyan);
 }
 
 /* Service Box Cards with Hover Glow */
